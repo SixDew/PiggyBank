@@ -2,7 +2,7 @@
 
 namespace PiggyBank.Repositories
 {
-    public interface IWalletRepository : IDataRepository<WalletModel, Guid>
+    public interface IWalletRepository : IDataRepository<Wallets, Guid>
     {
     }
 }
