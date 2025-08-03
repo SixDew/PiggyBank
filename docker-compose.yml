@@ -1,0 +1,11 @@
+services:
+    db:
+        image: postgres:16
+        environment:
+            POSTGRES_PASSWORD: piggy
+        ports: [5432:5432]
+    api:
+        build: ./PiggyBank
+        environment:
+            ConnectionStrings__Default: Host=db;Port=5432;Username=postgres;Password=piggy;Database=piggybank;
+        depends_on: [db]
