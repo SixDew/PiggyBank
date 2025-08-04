@@ -1,4 +1,4 @@
-﻿namespace PiggyBank.Models
+﻿namespace PiggyBank.Models.Interfaces
 {
     public interface IModel<TId>
     {

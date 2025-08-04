@@ -20,7 +20,7 @@ namespace PiggyBank.Migrations
                     Currency = table.Column<string>(type: "char(3)", nullable: false),
                     Balance = table.Column<decimal>(type: "numeric(14,2)", nullable: false),
                     CreatedAt = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false, defaultValueSql: "now()"),
-                    Version = table.Column<byte[]>(type: "bytea", rowVersion: true, nullable: false)
+                    xmin = table.Column<uint>(type: "xid", rowVersion: true, nullable: false)
                 },
                 constraints: table =>
                 {

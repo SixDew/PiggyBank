@@ -1,11 +1,12 @@
-﻿using PiggyBank.Models;
-using PiggyBank.Resources;
+﻿using PiggyBank.Converters.Interfaces;
+using PiggyBank.DTO;
+using PiggyBank.Models;
 
 namespace PiggyBank.Converters
 {
     public class WalletConverter : IWalletConverter
     {
-        public Wallets Convert(Wallet data)
+        public Wallets Convert(WalletFromClientDto data)
         {
             return new()
             {
@@ -16,7 +17,7 @@ namespace PiggyBank.Converters
             };
         }
 
-        public Wallet Convert(Wallets data)
+        public WalletFromClientDto Convert(Wallets data)
         {
             return new(
                 Id: data.Id,

@@ -14,6 +14,6 @@ namespace PiggyBank.Models
         public DateTimeOffset CreatedAt { get; set; }
 
         [Timestamp]
-        public byte[] Version { get; set; }
+        public uint Version { get; set; }
     }
 }

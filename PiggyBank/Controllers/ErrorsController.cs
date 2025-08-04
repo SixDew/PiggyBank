@@ -9,12 +9,14 @@ namespace PiggyBank.Controllers
     {
         [Route("error")]
         [ApiExplorerSettings(IgnoreApi = true)]
-        public ActionResult ErrorHandle()
+        public ActionResult ErrorHandle(CancellationToken cancellation)
         {
             var exception = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
             if (exception is ValidationException ex)
             {
-                var errors = ex.Errors.GroupBy(e => e.PropertyName).ToDictionary(g => g.Key, g => g.Select(e => e.ErrorMessage).ToArray());
+                //Разбиваем по названию свойств
+                var errors = ex.Errors.GroupBy(e => e.PropertyName)
+                    .ToDictionary(g => g.Key, g => g.Select(e => e.ErrorMessage));
 
                 return Problem(
                     title: "One or more validation errors occurred.",

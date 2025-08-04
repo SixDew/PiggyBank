@@ -1,16 +1,17 @@
-﻿using PiggyBank.Models;
-using PiggyBank.Resources;
+﻿using PiggyBank.Converters.Interfaces;
+using PiggyBank.DTO;
+using PiggyBank.Models;
 
 namespace PiggyBank.Converters
 {
     public class TransactionConverter : ITransactionConverter
     {
-        public Transactions Convert(Transaction data)
+        public Transactions Convert(TransactionFromClientDto data)
         {
             return new()
             {
                 Amount = data.Amount,
-                Direction = data.Direction,
+                Direction = (TransactionDirection)data.Direction!,
                 OccurredAt = data.OccuredAt,
                 Id = data.Id,
                 WalletId = data.WalletId,
@@ -18,7 +19,7 @@ namespace PiggyBank.Converters
             };
         }
 
-        public Transaction Convert(Transactions data)
+        public TransactionFromClientDto Convert(Transactions data)
         {
             return new(
                 Amount: data.Amount,

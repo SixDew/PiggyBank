@@ -1,4 +1,4 @@
-﻿using PiggyBank.Resources;
+﻿using PiggyBank.DTO;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PiggyBank.Models

@@ -1,6 +1,0 @@
-@PiggyBank_HostAddress = http://localhost:5269
-
-GET {{PiggyBank_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

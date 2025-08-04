@@ -1,10 +1,10 @@
-﻿namespace PiggyBank.Resources
+﻿namespace PiggyBank.DTO
 {
-    public record Transaction(
+    public record TransactionFromClientDto(
         Guid Id,
         Guid WalletId,
         decimal Amount,
-        TransactionDirection Direction,
+        TransactionDirection? Direction,
         DateTimeOffset OccuredAt,
         string? Comment)
     { }

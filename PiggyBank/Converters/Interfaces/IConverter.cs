@@ -1,4 +1,4 @@
-﻿namespace PiggyBank.Converters
+﻿namespace PiggyBank.Converters.Interfaces
 {
     public interface IConverter<TIn, TOut>
     {

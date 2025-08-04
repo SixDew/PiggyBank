@@ -1,4 +1,6 @@
-﻿namespace PiggyBank.Models
+﻿using PiggyBank.Models.Interfaces;
+
+namespace PiggyBank.Models
 {
     public abstract class BaseModel : IModel<Guid>
     {

@@ -12,7 +12,7 @@ using PiggyBank.Database;
 namespace PiggyBank.Migrations
 {
     [DbContext(typeof(FinancesDbContext))]
-    [Migration("20250803171243_Initial")]
+    [Migration("20250804065324_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -81,11 +81,11 @@ namespace PiggyBank.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<byte[]>("Version")
+                    b.Property<uint>("Version")
                         .IsConcurrencyToken()
-                        .IsRequired()
                         .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("bytea");
+                        .HasColumnType("xid")
+                        .HasColumnName("xmin");
 
                     b.HasKey("Id");
 
